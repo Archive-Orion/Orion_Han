@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Balancing
 {
-    class Program
+    class AlgorithmTest
     {
         static void Main(string[] args)
         {
