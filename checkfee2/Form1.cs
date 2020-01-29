@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 
+/* 수정할거: textBox1 = nameBox ; textBox2 = studentIDBox ; textBox3 = searchBox ; comboBox1 = departcomboBox ; checkBox1 = feecheckBox ;
+            button1 = save_btn ; button2 = del_btn ; button3 = updt_btn ; button4 = srch_btn  */
 namespace checkfee2
 {
     public partial class Form1 : Form
@@ -63,10 +65,10 @@ namespace checkfee2
 
         }
 
-        private void button3_Click(object sender, EventArgs e) // 수정기능 *코드 재수정 해야함
+        private void button3_Click(object sender, EventArgs e) // 수정기능 
         {
             con.Open();
-            SqlDataAdapter cmd = new SqlDataAdapter("update Table2 set name'" +textBox1.Text+"',studentID='" + textBox2.Text + "',depart='" + comboBox1.Text + "',fee='" + checkBox1.CheckState + "' where name='" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "')", con);
+            SqlDataAdapter cmd = new SqlDataAdapter("update Table2 set name='" +textBox1.Text+ "',studentID='" + textBox2.Text + "',depart='" + comboBox1.Text + "',fee='" + checkBox1.CheckState + "')", con);
             cmd.SelectCommand.ExecuteNonQuery();
             con.Close();
 
@@ -76,24 +78,22 @@ namespace checkfee2
 
         }
 
-        private void button4_Click(object sender, EventArgs e) //검색기능 *코드 다시 짜기 아예 재구성 해야함
+        private void button4_Click(object sender, EventArgs e) //검색기능 프로그램 실행해보기 * 이름 검색만 가능 
         {
             con.Open();
-            SqlDataAdapter cmd = new SqlDataAdapter("select * from Table2 where name='" + textBox3.Text + "'", con);
-            cmd.SelectCommand.ExecuteNonQuery();
-            DataTable dt = new DataTable();
+            SqlDataAdapter cmd = new SqlDataAdapter("select * from Table2 where name like '"+textBox3.Text+"%'", con);
+            DataTable dt = new DataTable("Table2");
             cmd.Fill(dt);
             dataGridView1.DataSource = dt;
             con.Close();
             disp_data();
 
-        } 
+        }
 
         public void disp_data() // 디스플레이 
         {
             con.Open();
             SqlDataAdapter cmd = new SqlDataAdapter("select * from Table2", con);
-            cmd.SelectCommand.ExecuteNonQuery();
             DataTable dt = new DataTable();
             cmd.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -106,8 +106,10 @@ namespace checkfee2
             textBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             comboBox1.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+         // checkBox1.CheckState =dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
         }
     }
 }
+
 
 
