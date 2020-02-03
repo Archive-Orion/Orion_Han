@@ -1,0 +1,11 @@
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\bin\Debug\FeeDB.mdf
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\bin\Debug\FeeDB_log.ldf
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\bin\Debug\CheckFee.exe.config
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\bin\Debug\CheckFee.exe
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\bin\Debug\CheckFee.pdb
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\obj\Debug\CheckFee.csprojAssemblyReference.cache
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\obj\Debug\CheckFee.Form1.resources
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\obj\Debug\CheckFee.Properties.Resources.resources
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\obj\Debug\CheckFee.csproj.GenerateResource.cache
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\obj\Debug\CheckFee.exe
+C:\Users\한윤원\source\repos\CheckFee\CheckFee\obj\Debug\CheckFee.pdb
