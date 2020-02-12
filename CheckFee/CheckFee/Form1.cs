@@ -105,15 +105,12 @@ namespace CheckFee
         }
         public void disp_data()
         { 
-            SqlCommand cmd = new SqlCommand("select * from CheckFeeTable", con);
+           con.Open();
+           SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM CheckFeeTable", con);
             DataTable dt = new DataTable();
-          
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-
+            sda.Fill(dt);
             dataGridView1.DataSource = dt;
+            con.Close();
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
