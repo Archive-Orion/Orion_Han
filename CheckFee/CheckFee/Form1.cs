@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-
 namespace CheckFee
 {
     public partial class Form1 : Form
@@ -20,10 +19,10 @@ namespace CheckFee
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\한윤원\source\repos\Archive-Orion\Orion_Han\CheckFee\CheckFee\FeeDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True;AttachDbFilename=|DataDirectory|\FeeDB.mdf;Connect Timeout=30;Trusted_Connection=Yes;");
         private void save_btn_Click(object sender, EventArgs e)
         {
-            if (nameTextBox.Text != String.Empty || studentIDTextBox.Text != String.Empty || departComboBox.Text != String.Empty)
+            if (nameTextBox.Text != String.Empty && studentIDTextBox.Text != String.Empty && departComboBox.Text != String.Empty)
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO CheckFeeTable VALUES(@name,@studentID,@depart,@fee)", con);
                 cmd.CommandType = CommandType.Text;
@@ -46,7 +45,7 @@ namespace CheckFee
 
         private void updt_btn_Click(object sender, EventArgs e)
         {
-            if (nameTextBox.Text != String.Empty || studentIDTextBox.Text != String.Empty || departComboBox.Text != String.Empty)
+            if (nameTextBox.Text != String.Empty && studentIDTextBox.Text != String.Empty && departComboBox.Text != String.Empty)
             {
                 SqlCommand cmd = new SqlCommand("UPDATE CheckFeeTable SET name= @name, studentID=@studentID, depart= @depart, fee=@fee ", con);
                 cmd.CommandType = CommandType.Text;
@@ -62,7 +61,7 @@ namespace CheckFee
                 MessageBox.Show("수정이 완료 되었습니다.");
 
                 reset_data();
-                disp_data();
+                disp_data();        
             }
             else MessageBox.Show("이름이나 학번 혹은 학과가 입력되어있지 않습니다.");
         }
