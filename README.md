@@ -27,7 +27,9 @@
 --------------------
  * 데이터 테이블 입력 및 저장, 수정도 중 테이블 요소들의 충돌로 인한 데이터 소실
  * 학과명의 TextBox가 입력됨 -> ReadOnly로 수정
-
+ * Form maximize시 구성요소 AutoResize기능 비활성화 
+   -> AutoResize 설정 및 Form Resize 설정 필요 
+ 
 
 
 
